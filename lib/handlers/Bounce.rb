@@ -11,7 +11,7 @@ module Handlers
         # Create a new BadNick message
         # OpenStruct will contain:
         # #type #direction #raw #received #server #port
-        # :nodoc: ':the.server 432 spox 999 :Erroneous Nickname'
+        # :nodoc: 
         def process(string)
             m = nil
             begin
