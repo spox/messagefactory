@@ -1,12 +1,19 @@
 require 'ostruct'
 
+unless(OpenStruct.new.type.nil?)
+    class OpenStruct
+        def type
+            @table[:type]
+        end
+    end
+end
+
 module MessageFactory
+module Handlers
     class Handler
 
-        # handlers:: Hash of handlers
-        # Create a new handler and add self to list of
-        # available handlers
-        def initialize(handlers={})
+        # Returns symbol or array of symbols of allowed message types
+        def types_process
             raise NotImplementedError.new
         end
 
@@ -16,15 +23,6 @@ module MessageFactory
             raise NotImplementedError.new
         end
 
-        # data:: string of data
-        # Preprocess allows for actions to be taken while
-        # message handling is still in a synchronized state
-        def preprocess(data)
-        end
-
-        # Does this handler need to be synchronized
-        def sync?
-            false
-        end
     end
+end
 end

@@ -1,16 +1,17 @@
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-
 module MessageFactory
+module Handlers
     class Bounce < Handler
-        # handlers:: Hash of handlers
-        # Create a new bounce handler
-        def initialize(handlers)
-            handlers['005'] = self
+
+        # Returns type(s) supported
+        def types_process
+            :'005'
         end
 
-        # string:: String to be processed
-        # Create a new bounce message
+        # string:: string to process
+        # Create a new BadNick message
+        # OpenStruct will contain:
+        # #type #direction #raw #received #server #port
+        # :nodoc: ':the.server 432 spox 999 :Erroneous Nickname'
         def process(string)
             m = nil
             begin
@@ -31,4 +32,5 @@ module MessageFactory
             m
         end
     end
+end
 end
