@@ -18,19 +18,16 @@ module Handlers
             string = string.dup
             m = nil
             begin
+                m = mk_struct(string)
+                m.type = :created
                 orig = string.dup
                 string.downcase!
-                m = OpenStruct.new
                 string.slice!(0)
                 m.server = string.slice!(0, string.index(' '))
                 string.slice!(0)
                 raise 'Bad message type' unless string.slice!(0, string.index(' ')).to_sym == :'003'
                 string.slice!(0, string.index('d')+2)
                 time = Time.parse(string)
-                m.type = :created
-                m.direction = :incoming
-                m.received = Time.now
-                m.raw = orig.dup
                 m.created = time
             rescue
                 raise "Failed to parse Created message: #{orig}"

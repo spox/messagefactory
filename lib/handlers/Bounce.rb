@@ -15,15 +15,12 @@ module Handlers
         def process(string)
             m = nil
             begin
+                m = mk_struct(string)
+                m.type = :bounce
                 orig = string.dup
                 2.times{string.slice!(0..string.index(' '))}
                 server = string.slice!(0..string.index(',')-1)
                 string.slice!(0..string.index(' ',4))
-                m = OpenStruct.new
-                m.type = :bounce
-                m.direction = :incoming
-                m.received = Time.now
-                m.raw = orig
                 m.server = server
                 m.port = string
             rescue Object => boom

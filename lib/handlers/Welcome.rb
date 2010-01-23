@@ -15,11 +15,8 @@ module Handlers
             orig = string.dup
             m = nil
             begin
-                m = OpenStruct.new
+                m = mk_struct(string)
                 m.type = :welcome
-                m.direction = :incoming
-                m.received = Time.now
-                m.raw = string.dup
                 string.slice!(0)
                 m.server = string.slice!(0, string.index(' '))
                 string.slice!(0)
