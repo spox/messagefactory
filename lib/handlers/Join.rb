@@ -13,6 +13,7 @@ module Handlers
         def process(string)
             string = string.dup
             orig = string.dup
+            m = nil
             begin
                 m = OpenStruct.new
                 m.type = :join

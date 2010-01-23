@@ -20,6 +20,7 @@ class InvitingTest < Test::Unit::TestCase
         assert_kind_of(OpenStruct, m)
         assert_equal(:incoming, m.direction)
         assert_equal(:inviting, m.type)
+        assert_equal('not.configured', m.server)
         assert_equal(string, m.raw)
         assert_kind_of(Time, m.received)
         assert_equal('spox', m.source)

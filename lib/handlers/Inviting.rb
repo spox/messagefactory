@@ -8,18 +8,21 @@ module Handlers
         # string:: string to process
         # Create a new Inviting message
         # OpenStruct will contain:
-        # #type #direction #raw #received #source #target #channel
+        # #type #direction #raw #received #server #source #target #channel
         # :nodoc: :not.configured 341 spox spox_ #a
         def process(string)
             string = string.dup
             orig = string.dup
+            m = nil
             begin
                 m = OpenStruct.new
                 m.raw = string.dup
                 m.received = Time.now
                 m.type = :inviting
                 m.direction = :incoming
-                string.slice!(0, string.index(' ')+1)
+                string.slice!(0)
+                m.server = string.slice!(0, string.index(' '))
+                string.slice!(0)
                 raise 'error' unless string.slice!(0, string.index(' ')).to_sym == :'341'
                 string.slice!(0)
                 m.source = string.slice!(0, string.index(' '))

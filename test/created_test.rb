@@ -18,6 +18,7 @@ class CreatedTest < Test::Unit::TestCase
         assert_kind_of(OpenStruct, m)
         assert_equal(:created, m.type)
         assert_equal(:incoming, m.direction)
+        assert_equal('not.configured', m.server)
         assert_equal(string, m.raw)
         assert_kind_of(Time, m.received)
         assert_kind_of(Time, m.created)
