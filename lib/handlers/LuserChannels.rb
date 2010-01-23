@@ -13,9 +13,27 @@ module Handlers
         def process(string)
             string = string.dup
             orig = string.dup
+            m = nil
             begin
-                
+                m = OpenStruct.new
+                m.type = :luserchannels
+                m.direction = :incoming
+                m.raw = string.dup
+                m.received = Time.now
+                string.slice!(0)
+                m.server = string.slice!(0, string.index(' '))
+                string.slice!(' ')
+                raise 'error' unless string.slice!(0, string.index(' ')).to_sym == :'254'
+                string.slice!(0)
+                m.target = string.slice!(0, string.index(' '))
+                string.slice!(0)
+                m.num_channels = string.slice!(0, string.index(' '))
+                string.slice!(0, string.index(':')+1)
+                m.message = string
+            rescue
+                raise "Failed to parse LuserChannels message: #{orig}"
             end
+            m
         end
     end
 end
