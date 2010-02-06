@@ -2,21 +2,8 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/home/spox/NetBeansProjects/messagefactory/lib/handlers/Bounce.rb</file>
-        <file>file:/home/spox/NetBeansProjects/messagefactory/lib/handlers/BadNick.rb</file>
-        <file>file:/home/spox/NetBeansProjects/messagefactory/lib/handlers/Created.rb</file>
-        <file>file:/home/spox/NetBeansProjects/messagefactory/lib/handlers/Invite.rb</file>
-        <file>file:/home/spox/NetBeansProjects/messagefactory/test/invite_test.rb</file>
-        <file>file:/home/spox/NetBeansProjects/messagefactory/test/created_test.rb</file>
-        <file>file:/home/spox/NetBeansProjects/messagefactory/lib/handlers/Inviting.rb</file>
-        <file>file:/home/spox/NetBeansProjects/messagefactory/test/inviting_test.rb</file>
-        <file>file:/home/spox/NetBeansProjects/messagefactory/lib/handlers/Join.rb</file>
-        <file>file:/home/spox/NetBeansProjects/messagefactory/test/join_test.rb</file>
-        <file>file:/home/spox/NetBeansProjects/messagefactory/lib/handlers/LuserChannels.rb</file>
-        <file>file:/home/spox/NetBeansProjects/messagefactory/test/luser_channels_test.rb</file>
-        <file>file:/home/spox/NetBeansProjects/messagefactory/lib/handlers/Welcome.rb</file>
-        <file>file:/home/spox/NetBeansProjects/messagefactory/test/welcome_test.rb</file>
-        <file>file:/home/spox/NetBeansProjects/messagefactory/lib/handlers/YourHost.rb</file>
-        <file>file:/home/spox/NetBeansProjects/messagefactory/test/your_host.rb</file>
+        <file>file:/home/spox/NetBeansProjects/messagefactory/lib/messagefactory/Factory.rb</file>
+        <file>file:/home/spox/NetBeansProjects/messagefactory/lib/messagefactory/handlers/PING.rb</file>
+        <file>file:/home/spox/NetBeansProjects/messagefactory/lib/messagefactory/handlers/PART.rb</file>
     </open-files>
 </project-private>
