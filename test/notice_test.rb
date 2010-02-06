@@ -2,8 +2,8 @@
 # and open the template in the editor.
 
 require 'test/unit'
-require 'Handler'
-require 'handlers/Notice'
+require 'messagefactory/Handler'
+require 'messagefactory/handlers/NOTICE'
 
 class NoticeTest < Test::Unit::TestCase
     def setup

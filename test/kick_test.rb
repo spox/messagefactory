@@ -1,8 +1,8 @@
 $:.unshift File.join(File.dirname(__FILE__),'..','lib')
 
 require 'test/unit'
-require 'Handler'
-require 'handlers/Kick'
+require 'messagefactory/Handler'
+require 'messagefactory/handlers/KICK'
 
 class KickTest < Test::Unit::TestCase
     def setup

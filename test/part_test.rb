@@ -4,8 +4,8 @@
 $:.unshift File.join(File.dirname(__FILE__),'..','lib')
 
 require 'test/unit'
-require 'Handler'
-require 'handlers/Part'
+require 'messagefactory/Handler'
+require 'messagefactory/handlers/PART'
 # :nodoc: :mod_spox!~mod_spox@host PART #m :
         # :nodoc: :foobar!~foobar@some.host PART #php
 class PartTest < Test::Unit::TestCase

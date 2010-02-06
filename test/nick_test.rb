@@ -4,8 +4,8 @@
 $:.unshift File.join(File.dirname(__FILE__),'..','lib')
 
 require 'test/unit'
-require 'Handler'
-require 'handlers/Nick'
+require 'messagefactory/Handler'
+require 'messagefactory/handlers/NICK'
 
 class NickTest < Test::Unit::TestCase
     def setup
