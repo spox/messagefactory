@@ -18,13 +18,22 @@ module Handlers
             m = mk_struct(string)
             begin
                 if(string.slice(0).chr == ':')
+                    string.slice!(0)
                     m.server = string.slice!(0, string.index(' '))
                     string.slice!(0)
                     raise 'error' unless string.slice!(0, string.index(' ')).to_sym == :PING
                     string.slice!(0, string.index(':')+1)
+                    m.message = string
+                else
+                    raise 'error' unless string.slice!(0, string.index(' ')).to_sym == :PING
+                    string.slice!(0, string.index(':')+1)
+                    m.server = string
+                    m.message = string
                 end
             rescue
+                raise "Failed to parse Part message: #{m.raw}"
             end
+            m
         end
     end
 end
