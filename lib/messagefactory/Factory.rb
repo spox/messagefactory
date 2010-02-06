@@ -21,18 +21,24 @@ module MessageFactory
             rescue
                 raise 'Failed to determine message type'
             end
-            t
+            t.to_sym
         end
 
         # string:: String from IRC server to process
         # Process the given string and return parsed
         # message or nil
-        def process(string)
+        def process(string, do_require=true)
             s = nil
-            if(@handlers[type(string)])
+            mtype = type(string)
+            if(@handlers[mtype])
                 s = @handlers.process(string)
             else
-                raise NoMethodError.new("No handler found to process string: #{string}")
+                if(do_require)
+                    require "messagefactory/handlers/#{mtype}"
+                    s = process(string, false)
+                else
+                    raise NoMethodError.new("No handler found to process string: #{string}")
+                end
             end
             s
         end
