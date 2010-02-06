@@ -17,6 +17,7 @@ module Handlers
             string = string.dup
             m = mk_struct(string)
             begin
+                m.type = :ping
                 if(string.slice(0).chr == ':')
                     string.slice!(0)
                     m.server = string.slice!(0, string.index(' '))
@@ -31,7 +32,7 @@ module Handlers
                     m.message = string
                 end
             rescue
-                raise "Failed to parse Part message: #{m.raw}"
+                raise "Failed to parse Ping message: #{m.raw}"
             end
             m
         end
