@@ -41,6 +41,7 @@ module Handlers
                     m.modes = string.slice!(0, string.index(' '))
                     string.slice!(0)
                     m.target = string
+                    m.nick_mode = Hash[m.target.split.zip(m.modes.split(''))]
                 end
             rescue
                 raise "Failed to parse Mode message: #{orig}"
