@@ -9,6 +9,11 @@ unless(OpenStruct.new.type.nil?)
 end
 
 module MessageFactory
+    class Message < OpenStruct
+    end
+end
+
+module MessageFactory
 module Handlers
     class Handler
 
@@ -28,7 +33,7 @@ module Handlers
         # orig:: Original message string
         # Helper to generate the message struct
         def mk_struct(orig=nil)
-            m = OpenStruct.new
+            m = Message.new
             m.direction = :incoming
             m.received = Time.now
             m.raw = orig.dup
