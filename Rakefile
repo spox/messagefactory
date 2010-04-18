@@ -13,13 +13,13 @@ require 'spec/rake/spectask'
 
 spec = Gem::Specification.new do |s|
   s.name = 'messagefactory'
-  s.version = '0.0.1'
+  s.version = '0.0.2'
   s.has_rdoc = true
   s.extra_rdoc_files = ['README.rdoc', 'LICENSE']
-  s.summary = 'Your summary here'
+  s.summary = 'Objectifies content from an IRC server'
   s.description = s.summary
-  s.author = ''
-  s.email = ''
+  s.author = 'spox'
+  s.email = 'spox@modspox.com'
   # s.executables = ['your_executable_here']
   s.files = %w(LICENSE README.rdoc Rakefile) + Dir.glob("{bin,lib,spec}/**/*")
   s.require_path = "lib"
