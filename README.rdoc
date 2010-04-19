@@ -40,7 +40,7 @@ MessageFactory is currently tested on:
 
 === Result:
 
-    #<OpenStruct direction=:incoming, received=Fri Feb 05 19:58:42 UTC 2010, raw=":mod_spox!~mod_spox@host JOIN :#m", type=:join, source="mod_spox!~mod_spox@host", channel="#m">
+    #<MessageFactory::Message direction=:incoming, received=Fri Feb 05 19:58:42 UTC 2010, raw=":mod_spox!~mod_spox@host JOIN :#m", type=:join, source="mod_spox!~mod_spox@host", channel="#m">
 
 == Last remarks
 
