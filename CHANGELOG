@@ -1,3 +1,7 @@
+0.0.3
+    * Fix variable typo in Factory
+    * Add automatic handler loading
+    * Add simple test for Factory (needs to be expanded)
 0.0.2
     * Add easy require
 0.0.1
