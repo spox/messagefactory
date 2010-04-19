@@ -45,7 +45,11 @@ module MessageFactory
                     load_handlers
                     s = process(string, false)
                 else
-                    raise NoMethodError.new("No handler found to process string: #{string}")
+                    s = Message.new
+                    s.direction = :incoming
+                    s.received = Time.now
+                    s.raw = string.dup
+                    s.type = :UNKNOWN
                 end
             end
             s
