@@ -13,7 +13,7 @@ require 'spec/rake/spectask'
 
 spec = Gem::Specification.new do |s|
   s.name = 'messagefactory'
-  s.version = '0.0.3'
+  s.version = '0.0.4'
   s.has_rdoc = true
   s.extra_rdoc_files = ['README.rdoc', 'LICENSE']
   s.summary = 'Objectifies content from an IRC server'
