@@ -17,9 +17,8 @@ class FactoryTest < Test::Unit::TestCase
 
     def test_autoload_failure
         factory = MessageFactory::Factory.new
-        assert_raise(NoMethodError) do
-            factory.process('failure message')
-        end
+        res = factory.process('unknown message type')
+        assert_equal(:UNKNOWN, res.type)
     end
 
 end
