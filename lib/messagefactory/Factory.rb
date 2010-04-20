@@ -53,7 +53,7 @@ module MessageFactory
 
         private
 
-        def mk_unknown
+        def mk_unknown(string)
             s = Message.new
             s.direction = :incoming
             s.received = Time.now
