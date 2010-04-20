@@ -39,23 +39,28 @@ module MessageFactory
                 if(do_require)
                     begin
                         require "messagefactory/handlers/#{mtype}"
+                        load_handlers
+                        s = process(string, false)
                     rescue LoadError
-                        raise NoMethodError.new("No handler found to process string: #{string}")
+                        s = mk_unknown(string)
                     end
-                    load_handlers
-                    s = process(string, false)
                 else
-                    s = Message.new
-                    s.direction = :incoming
-                    s.received = Time.now
-                    s.raw = string.dup
-                    s.type = :UNKNOWN
+                    s = mk_unknown(string)
                 end
             end
             s
         end
 
         private
+
+        def mk_unknown
+            s = Message.new
+            s.direction = :incoming
+            s.received = Time.now
+            s.raw = string.dup
+            s.type = :UNKNOWN
+            s
+        end
 
         def load_handlers
             loaded = @handlers.values.map{|x|x.class}
