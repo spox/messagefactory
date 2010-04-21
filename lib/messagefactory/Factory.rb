@@ -1,3 +1,6 @@
+require 'splib'
+Splib.load :Monitor
+
 require 'messagefactory/Handler'
 
 module MessageFactory
@@ -5,6 +8,7 @@ module MessageFactory
         # Create a new Factory
         def initialize
             @handlers = {}
+            @lock = Splib::Monitor.new
         end
 
         # s:: string from server
@@ -63,17 +67,19 @@ module MessageFactory
         end
 
         def load_handlers
-            loaded = @handlers.values.map{|x|x.class}
-            MessageFactory::Handlers.constants.each do |cons|
-                klas = MessageFactory::Handlers.const_get(cons)
-                if(klas.is_a?(Class) && klas < MessageFactory::Handlers::Handler && !loaded.include?(klas))
-                    handler = klas.new
-                    if(handler.types_process.is_a?(Array))
-                        handler.types_process.each do |t|
-                            @handlers[t] = handler
+            @lock.synchronize do
+                loaded = @handlers.values.map{|x|x.class}
+                MessageFactory::Handlers.constants.each do |cons|
+                    klas = MessageFactory::Handlers.const_get(cons)
+                    if(klas.is_a?(Class) && klas < MessageFactory::Handlers::Handler && !loaded.include?(klas))
+                        handler = klas.new
+                        if(handler.types_process.is_a?(Array))
+                            handler.types_process.each do |t|
+                                @handlers[t] = handler
+                            end
+                        else
+                            @handlers[handler.types_process] = handler
                         end
-                    else
-                        @handlers[handler.types_process] = handler
                     end
                 end
             end
