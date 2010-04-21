@@ -1,3 +1,6 @@
+0.0.6
+    * Make handler loading thread safe
+    * Add Splib dependency
 0.0.5
     * Removes exceptions thrown when handler file cannot be found
 0.0.4
