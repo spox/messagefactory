@@ -9,16 +9,16 @@ require 'messagefactory/Factory'
 
 class FactoryTest < Test::Unit::TestCase
 
-    def test_autoload
-        factory = MessageFactory::Factory.new
-        res = factory.process(':not.configured 001 spox :Welcome to the unconfigured IRC Network spox!~spox@192.168.0.107')
-        assert_kind_of(MessageFactory::Message, res)
-    end
+  def test_autoload
+    factory = MessageFactory::Factory.new
+    res = factory.process(':not.configured 001 spox :Welcome to the unconfigured IRC Network spox!~spox@192.168.0.107')
+    assert_kind_of(MessageFactory::Message, res)
+  end
 
-    def test_autoload_failure
-        factory = MessageFactory::Factory.new
-        res = factory.process('unknown message type')
-        assert_equal(:UNKNOWN, res.type)
-    end
+  def test_autoload_failure
+    factory = MessageFactory::Factory.new
+    res = factory.process('unknown message type')
+    assert_equal(:UNKNOWN, res.type)
+  end
 
 end

@@ -1,15 +1,15 @@
 0.0.6
-    * Make handler loading thread safe
-    * Add Splib dependency
+  * Make handler loading thread safe
+  * Add Splib dependency
 0.0.5
-    * Removes exceptions thrown when handler file cannot be found
+  * Removes exceptions thrown when handler file cannot be found
 0.0.4
-    * Add UNKNOWN type to allow messages with no handler to be processed
+  * Add UNKNOWN type to allow messages with no handler to be processed
 0.0.3
-    * Fix variable typo in Factory
-    * Add automatic handler loading
-    * Add simple test for Factory (needs to be expanded)
+  * Fix variable typo in Factory
+  * Add automatic handler loading
+  * Add simple test for Factory (needs to be expanded)
 0.0.2
-    * Add easy require
+  * Add easy require
 0.0.1
-    * Initial release
+  * Initial release
