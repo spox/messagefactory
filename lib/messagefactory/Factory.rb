@@ -1,5 +1,5 @@
 require 'splib'
-Splib.load :Monitor
+Splib.load :monitor
 
 require 'messagefactory/Handler'
 
