@@ -30,7 +30,7 @@ module Handlers
         raise unless types_process.include?(action.to_sym)
         string.slice!(0)
         action = ('process_'+action)
-        if(self.methods.include?(action))
+        if(self.methods.map(&:to_sym).include?(action.to_sym))
           m = self.send(action, string, orig)
         else
           m = store_raw(string, orig)

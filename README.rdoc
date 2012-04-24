@@ -2,7 +2,7 @@
 
 MessageFactory is a simple little library for parsing messages from an IRC
 server and generating easy to use objects from them. This library is intended
-to be used within an IRC type application, and does nothing of value by itself.
+to be used within an IRC type application, and does nothing of value by itself. 
 
 === install (easy):
 
